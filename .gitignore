@@ -13,3 +13,5 @@ Thumbs.db
 
 # Ignorar archivos personales o locales
 *.env
+
+LIDAR_MVD_2024_K-29-B-1-O-3_converted/
