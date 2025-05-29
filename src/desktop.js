@@ -533,5 +533,8 @@ export async function dropHandler(event){
 		loadDroppedPointcloud(cloudjs);
 	}
 
+	// Setea el rgb del index que pusimos nosotros
+	window.setRGB();
+
 	return false;
 };
