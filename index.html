@@ -5,7 +5,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Potree Viewer</title>
+	<title>Visualizador - Potree</title>
 
 	<link rel="stylesheet" type="text/css" href="./libs/potree/potree.css">
 	<link rel="stylesheet" type="text/css" href="./libs/jquery-ui/jquery-ui.min.css">
@@ -25,12 +25,12 @@
 		<span style="position:absolute; left: 0px; right: 0px; top: 0px; bottom: 0px" class="dropzone">
 			
 			<span class="middle">
-				<p class="dropzone_title">Convert and/or Load point clouds</p>
+				<p class="dropzone_title">Convertir y/o cargar nubes de puntos.</p>
 
 				<ul class="dropzone_text">
-					<li>Drop LAS/LAZ files to convert and load them.</li>
-					<li>Drop folders to convert and load all files inside.</li>
-					<li>Drop previously converted cloud.js, metadata.json or containing directy to load.</li>
+					<li>Arrastra y suelta archivos LAS/LAZ para convertirlos y cargarlos.</li>
+					<li>Arrastra y suelta carpetas para convertirlas y cargar todos los archivos dentro.</li>
+					<li>Arrastra y suelta cloud.js, metadata.json previamente convertidos o el directorio que los contiene para cargarlos.</li>
 				</ul>
 			</span>
 
@@ -68,7 +68,7 @@
 		<br>
 
 		<div class="converter_panel_widget">
-			Choose a Converter:
+			Elige un convertidor:
 			<div class="selection_buttons">
 
 				<input type="radio" id="selection_converter_version_1_7" 
@@ -76,8 +76,8 @@
 					<label for="selection_converter_version_1_7" class="left">
 					<span class="title">PotreeConverter 1.7</span>
 					<ul>
-						<li>Older version that generates 1 file per octree node.</li>
-						<li>Try of PotreeConverter 2.0 causes issues.</li>
+						<li>Versión anterior que genera 1 archivo por nodo de octree.</li>
+						<li>El intento de PotreeConverter 2.0 causa problemas.</li>
 					</ul>
 				</label>
 
@@ -86,7 +86,7 @@
 					<label for="selection_converter_version_2_0" class="right" >
 					<span class="title">PotreeConverter 2.0</span>
 					<ul>
-						<li>Complete rewrite that generates a total of 3 files instead of thousands to millions.</li>
+						<li>Reescritura completa que genera un total de 3 archivos en lugar de miles o millones.</li>
 					</ul>
 				</label>
 
@@ -183,6 +183,7 @@
 		
 		viewer.setDescription("");
 		
+		// Modifica el GUI
 		viewer.loadGUI(() => {
 			viewer.setLanguage('es');
 			// $("#menu_appearance").next().show();
@@ -192,23 +193,27 @@
 			viewer.toggleSidebar();
 			viewer.profileWindowController.setProfile(viewer.scene.profiles[0]);
 		});
-
 		
-
-		
+		// Funcion para setear el rgb
 		window.setRGB = function(){
-			const pc = viewer.scene.pointclouds[0];
-			if (!pc) return;
 
-			pc.material.needsUpdate = true;
-			pc.material.activeAttributeName = "rgba";
+			// Ponemos el rgb en cada pointcloud
+			viewer.scene.pointclouds.forEach(function(element, index) {
+				const pc = element;
+				if (!pc) return;
 
+				pc.material.needsUpdate = true;
+				pc.material.activeAttributeName = "rgba";
+			});
+
+			// Seteamos en la sidebar la clasificacion
 			viewer.setClassifications(window.classificationEs);
 		};
 
+		// Clasificacion
 		window.classificationEs = {
-			0: { visible: true, name: 'Nunca clasificado', color: [160 / 255, 160 / 255, 160 / 255, 1.0] },
-			1: { visible: true, name: 'No clasificado', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
+			0: { visible: false, name: 'Nunca clasificado', color: [160 / 255, 160 / 255, 160 / 255, 1.0] },
+			1: { visible: false, name: 'No clasificado', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
 			2: { visible: true, name: 'Tierra', color: [128 / 255, 64 / 255, 0, 1.0] },
 			3: { visible: true, name: 'Vegetación baja', color: [0, 128 / 255, 0, 1.0] },
 			4: { visible: true, name: 'Vegetación media', color: [0, 200 / 255, 0, 1.0] },
@@ -218,18 +223,25 @@
 			8: { visible: true, name: 'Punto clave', color: [255 / 255, 0, 0, 1.0] },
 			9: { visible: true, name: 'Agua', color: [0, 0, 255 / 255, 1.0] },
 			12: { visible: true, name: 'Solapamiento', color: [255 / 255, 255 / 255, 0, 1.0] },
-			120: { visible: true, name: 'Por defecto', color: [0, 128 / 255, 255 / 255, 1.0] }
+			120: { visible: false, name: 'Por defecto', color: [0, 128 / 255, 255 / 255, 1.0] }
 			// ...agrega los que falten
 		};
 
+		// Funcion para setear la clasificacion
 		window.setClasif = function(){
-			const pc = viewer.scene.pointclouds[0];
-			if (!pc) return;
 
-			pc.material.activeAttributeName = "classification";
+			// Por cada pointcloud setea la clasificacion
+			viewer.scene.pointclouds.forEach(function(element, index) {
+				const pc = element;
+				if (!pc) return;
+
+				pc.material.activeAttributeName = "classification";
+			});
+			
+			// Clasificaciones
 			viewer.setClassifications({
 				0: { visible: false, name: 'Nunca clasificado', color: [160 / 255, 160 / 255, 160 / 255, 1.0] },
-				1: { visible: true, name: 'No clasificado', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
+				1: { visible: false, name: 'No clasificado', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
 				2: { visible: true, name: 'Suelo', color: [128 / 255, 64 / 255, 0, 1.0] },
 				3: { visible: true, name: 'Baja vegetación', color: [0, 128 / 255, 0, 1.0] },
 				4: { visible: true, name: 'Vegetación media', color: [0, 200 / 255, 0, 1.0] },
@@ -250,41 +262,20 @@
 			});
 		};
 
+		// Funcion para setear la elevacion
 		window.setElevation = function(){
-			const pc = viewer.scene.pointclouds[0];
-			if (!pc) return;
+			// Por cada pointcloud seteo la elevacion
+			viewer.scene.pointclouds.forEach(function(element, index) {
+				const pc = element;
+				if (!pc) return;
 
-			pc.material.activeAttributeName = "elevation";
-			// pc.material.gradient = [
-			// 	[0.0, new Color(0.090, 0.545, 0.400)],
-			// 	[0.1, new Color(0.180, 0.590, 0.400)],
-			// 	[0.2, new Color(0.271, 0.635, 0.400)],
-			// 	[0.3, new Color(0.365, 0.682, 0.400)],
-			// 	[0.4, new Color(0.455, 0.727, 0.400)],
-			// 	[0.5, new Color(0.545, 0.773, 0.400)],
-			// 	[0.6, new Color(0.635, 0.818, 0.400)],
-			// 	[0.7, new Color(0.729, 0.865, 0.400)],
-			// 	[0.8, new Color(0.820, 0.910, 0.400)],
-			// 	[0.9, new Color(0.910, 0.955, 0.400)],
-			// 	[1.0, new Color(1.000, 1.000, 0.400)],
-			// ];
-			// pc.material.elevationRange = [720, 800];
-
-			// viewer.scene.requestRedraw();
-		};
-
-
-		// window.addEventListener('error', (e) => {
-		// 	//console.log(e);
-		// 	viewer.postError(e.error.message);
-		// });
-
-		
+				pc.material.activeAttributeName = "elevation";
+			});
+		};		
 		
 	</script>
 
-
-	
+// div para los botones 
 <div id="custom-buttons" style="position: absolute; z-index: 10000;" class="buttons">
 	<button onclick="setRGB()">RGB</button>
 	<button onclick="setClasif()">Clasificación</button>
