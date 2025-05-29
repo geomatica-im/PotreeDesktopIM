@@ -1,0 +1,15 @@
+# Ignorar la configuración de VS Code
+.vscode/
+
+# Ignorar módulos de node
+node_modules/
+
+# Ignorar logs y otros archivos temporales
+*.log
+
+# Ignorar sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos personales o locales
+*.env
