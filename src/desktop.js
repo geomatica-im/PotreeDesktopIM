@@ -2,7 +2,7 @@
 import * as THREE from "../libs/three.js/build/three.module.js"
 import JSON5 from "../libs/json5-2.1.3/json5.mjs";
 
-export function loadDroppedPointcloud(cloudjsPath){
+export function loadDroppedPointcloud(cloudjsPath, callback){
 	const folderName = cloudjsPath.replace(/\\/g, "/").split("/").reverse()[1];
 
 	Potree.loadPointCloud(cloudjsPath).then(e => {
@@ -24,6 +24,11 @@ export function loadDroppedPointcloud(cloudjsPath){
 		material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
 		viewer.zoomTo(e.pointcloud);
+
+		// Ejecuta el callback si fue pasado
+        if (typeof callback === "function") {
+            callback(pointcloud);
+        }
 	});
 };
 
@@ -534,7 +539,19 @@ export async function dropHandler(event){
 	}
 
 	// Setea el rgb del index que pusimos nosotros
-	window.setRGB();
-
+	for(const cloudjs of cloudJsFiles){
+		loadDroppedPointcloud(cloudjs, function(pc){
+			// Detecta el modo actual de la PRIMERA nube para poner el mismo modo a la nueva nube
+			const mode = viewer.scene.pointclouds[0]?.material.activeAttributeName;
+			if (mode === "elevation") {
+				window.setElevation();
+			} else if (mode === "classification") {
+				window.setClasif();
+			} else {
+				window.setRGB();
+			}
+		});
+	}
+	
 	return false;
 };
