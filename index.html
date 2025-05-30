@@ -186,12 +186,11 @@
 		// Modifica el GUI
 		viewer.loadGUI(() => {
 			viewer.setLanguage('es');
-			// $("#menu_appearance").next().show();
+			$("#menu_appearance").next().show();
 			$("#menu_tools").next().show();
-			// $("#menu_scene").next().show();
+			$("#menu_scene").next().show();
 			$("#menu_filters").next().show();
 			viewer.toggleSidebar();
-			viewer.profileWindowController.setProfile(viewer.scene.profiles[0]);
 		});
 		
 		// Funcion para setear el rgb
