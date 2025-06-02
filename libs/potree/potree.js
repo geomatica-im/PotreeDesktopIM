@@ -75114,7 +75114,7 @@ ENDSEC
 
 				<br>
 
-				<input type="button" id="show_2d_profile" value="show 2d profile" style="width: 100%"/>
+				<input type="button" id="show_2d_profile" value="Ver perfil 2D" style="width: 100%"/>
 
 				<!-- ACTIONS -->
 				<div style="display: flex; margin-top: 12px">
@@ -75831,11 +75831,11 @@ ENDSEC
 					</div>
 
 					<li>RGB: <span id="lblWeightRGB"></span> <div id="sldWeightRGB"></div>	</li>
-					<li>Intensity: <span id="lblWeightIntensity"></span> <div id="sldWeightIntensity"></div>	</li>
-					<li>Elevation: <span id="lblWeightElevation"></span> <div id="sldWeightElevation"></div>	</li>
-					<li>Classification: <span id="lblWeightClassification"></span> <div id="sldWeightClassification"></div>	</li>
-					<li>Return Number: <span id="lblWeightReturnNumber"></span> <div id="sldWeightReturnNumber"></div>	</li>
-					<li>Source ID: <span id="lblWeightSourceID"></span> <div id="sldWeightSourceID"></div>	</li>
+					<li>Intensidad: <span id="lblWeightIntensity"></span> <div id="sldWeightIntensity"></div>	</li>
+					<li>Elevación: <span id="lblWeightElevation"></span> <div id="sldWeightElevation"></div>	</li>
+					<li>Clasificación: <span id="lblWeightClassification"></span> <div id="sldWeightClassification"></div>	</li>
+					<li>Numero de retorno: <span id="lblWeightReturnNumber"></span> <div id="sldWeightReturnNumber"></div>	</li>
+					<li>ID de Fuente del Punto: <span id="lblWeightSourceID"></span> <div id="sldWeightSourceID"></div>	</li>
 				</div>
 
 				<div id="materials.rgb_container">
@@ -75844,8 +75844,8 @@ ENDSEC
 					</div>
 
 					<li>Gamma: <span id="lblRGBGamma"></span> <div id="sldRGBGamma"></div>	</li>
-					<li>Brightness: <span id="lblRGBBrightness"></span> <div id="sldRGBBrightness"></div>	</li>
-					<li>Contrast: <span id="lblRGBContrast"></span> <div id="sldRGBContrast"></div>	</li>
+					<li>Brillo: <span id="lblRGBBrightness"></span> <div id="sldRGBBrightness"></div>	</li>
+					<li>Contraste: <span id="lblRGBContrast"></span> <div id="sldRGBContrast"></div>	</li>
 				</div>
 
 				<div id="materials.extra_container">
@@ -75856,8 +75856,8 @@ ENDSEC
 					<li><span data-i18n="appearance.extra_range"></span>: <span id="lblExtraRange"></span> <div id="sldExtraRange"></div></li>
 
 					<li>Gamma: <span id="lblExtraGamma"></span> <div id="sldExtraGamma"></div></li>
-					<li>Brightness: <span id="lblExtraBrightness"></span> <div id="sldExtraBrightness"></div></li>
-					<li>Contrast: <span id="lblExtraContrast"></span> <div id="sldExtraContrast"></div></li>
+					<li>Brillo: <span id="lblExtraBrightness"></span> <div id="sldExtraBrightness"></div></li>
+					<li>Contraste: <span id="lblExtraContrast"></span> <div id="sldExtraContrast"></div></li>
 				</div>
 				
 				<div id="materials.matcap_container">
@@ -75881,7 +75881,7 @@ ENDSEC
 
 				<div id="materials.elevation_container">
 					<div class="divider">
-						<span>Elevation</span>
+						<span>Elevación</span>
 					</div>
 
 					<li><span data-i18n="appearance.elevation_range"></span>: <span id="lblHeightRange"></span> <div id="sldHeightRange"></div>	</li>
@@ -75895,7 +75895,7 @@ ENDSEC
 					</li>
 
 					<li>
-						<span>Gradient Scheme:</span>
+						<span>Esquema de Gradiente:</span>
 						<div id="elevation_gradient_scheme_selection" style="display: flex; padding: 1em 0em">
 						</div>
 					</li>
@@ -75914,22 +75914,22 @@ ENDSEC
 						<span>Intensity</span>
 					</div>
 
-					<li>Range: <span id="lblIntensityRange"></span> <div id="sldIntensityRange"></div>	</li>
+					<li>Rango: <span id="lblIntensityRange"></span> <div id="sldIntensityRange"></div>	</li>
 					<li>Gamma: <span id="lblIntensityGamma"></span> <div id="sldIntensityGamma"></div>	</li>
-					<li>Brightness: <span id="lblIntensityBrightness"></span> <div id="sldIntensityBrightness"></div>	</li>
-					<li>Contrast: <span id="lblIntensityContrast"></span> <div id="sldIntensityContrast"></div>	</li>
+					<li>Brillo: <span id="lblIntensityBrightness"></span> <div id="sldIntensityBrightness"></div>	</li>
+					<li>Contraste: <span id="lblIntensityContrast"></span> <div id="sldIntensityContrast"></div>	</li>
 				</div>
 
 				<div id="materials.gpstime_container">
 					<div class="divider">
-						<span>GPS Time</span>
+						<span>Tiempo GPS</span>
 					</div>
 
 				</div>
 				
 				<div id="materials.index_container">
 					<div class="divider">
-						<span>Indices</span>
+						<span>Índices de Puntos</span>
 					</div>
 				</div>
 
@@ -79482,7 +79482,7 @@ ENDSEC
 
 			{ // SHOW / HIDE Measurements
 				let elShow = $("#measurement_options_show");
-				elShow.selectgroup({title: "Show/Hide labels"});
+				elShow.selectgroup({title: "Mostrar/Ocultar Etiquetas"});
 
 				elShow.find("input").click( (e) => {
 					const show = e.target.value === "SHOW";
@@ -79601,12 +79601,12 @@ ENDSEC
 				return nodeID;
 			};
 
-			let pcID = tree.jstree('create_node', "#", { "text": "<b>Point Clouds</b>", "id": "pointclouds"}, "last", false, false);
-			let measurementID = tree.jstree('create_node', "#", { "text": "<b>Measurements</b>", "id": "measurements" }, "last", false, false);
-			let annotationsID = tree.jstree('create_node', "#", { "text": "<b>Annotations</b>", "id": "annotations" }, "last", false, false);
-			let otherID = tree.jstree('create_node', "#", { "text": "<b>Other</b>", "id": "other" }, "last", false, false);
-			let vectorsID = tree.jstree('create_node', "#", { "text": "<b>Vectors</b>", "id": "vectors" }, "last", false, false);
-			let imagesID = tree.jstree('create_node', "#", { "text": "<b> Images</b>", "id": "images" }, "last", false, false);
+			let pcID = tree.jstree('create_node', "#", { "text": "<b>Nubes de Puntos</b>", "id": "pointclouds"}, "last", false, false);
+			let measurementID = tree.jstree('create_node', "#", { "text": "<b>Mediciones</b>", "id": "measurements" }, "last", false, false);
+			let annotationsID = tree.jstree('create_node', "#", { "text": "<b>Anotaciones</b>", "id": "annotations" }, "last", false, false);
+			let otherID = tree.jstree('create_node', "#", { "text": "<b>Otras opciones</b>", "id": "other" }, "last", false, false);
+			let vectorsID = tree.jstree('create_node', "#", { "text": "<b>Vectores</b>", "id": "vectors" }, "last", false, false);
+			let imagesID = tree.jstree('create_node', "#", { "text": "<b>Imágenes</b>", "id": "images" }, "last", false, false);
 
 			tree.jstree("check_node", pcID);
 			tree.jstree("check_node", measurementID);
@@ -79990,7 +79990,7 @@ ENDSEC
 
 			{
 				let elClipTask = $("#cliptask_options");
-				elClipTask.selectgroup({title: "Clip Task"});
+				elClipTask.selectgroup({title: "Tarea de Recorte"});
 
 				elClipTask.find("input").click( (e) => {
 					this.viewer.setClipTask(ClipTask[e.target.value]);
@@ -80003,7 +80003,7 @@ ENDSEC
 
 			{
 				let elClipMethod = $("#clipmethod_options");
-				elClipMethod.selectgroup({title: "Clip Method"});
+				elClipMethod.selectgroup({title: "Método de Recorte"});
 
 				elClipMethod.find("input").click( (e) => {
 					this.viewer.setClipMethod(ClipMethod[e.target.value]);
@@ -80682,7 +80682,7 @@ ENDSEC
 			</selectgroup>
 		`);
 			elNavigation.append(elCameraProjection);
-			elCameraProjection.selectgroup({title: "Camera Projection"});
+			elCameraProjection.selectgroup({title: "Proyección de Cámara"});
 			elCameraProjection.find("input").click( (e) => {
 				this.viewer.setCameraMode(CameraMode[e.target.value]);
 			});
@@ -80737,7 +80737,7 @@ ENDSEC
 
 			{
 				let elSplatQuality = $("#splat_quality_options");
-				elSplatQuality.selectgroup({title: "Splat Quality"});
+				elSplatQuality.selectgroup({title: "Calidad de Splat"});
 
 				elSplatQuality.find("input").click( (e) => {
 					if(e.target.value === "standard"){
