@@ -5,7 +5,10 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder --win --linux"
   },
   "build": {
     "appId": "uy.gub.montevideo.visualizadorpotree",
@@ -33,6 +36,24 @@
     },
     "win": {
       "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "rpm",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Graphics",
+      "description": "Visualizador de nubes de puntos LiDAR para la Intendencia de Montevideo"
     }
   },
   "repository": "https://github.com/potree/potree",
@@ -45,7 +66,7 @@
   "license": "no license available at this time",
   "dependencies": {},
   "devDependencies": {
-	"electron": "21.3.1",
+    "electron": "21.3.1",
     "electron-builder": "^26.0.12"
   }
 }
