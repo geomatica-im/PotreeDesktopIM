@@ -11,10 +11,25 @@
     "appId": "uy.gub.montevideo.visualizadorpotree",
     "productName": "Visualizador de Potree - IM",
     "files": [
-      "**/*"
+      "**/*",
+      "!**/node_modules/*",
+      "!libs/PotreeConverter/**/*",
+      "!libs/PotreeConverter2/**/*"
+    ],
+    "extraFiles": [
+      {
+        "from": "libs/PotreeConverter",
+        "to": "resources/PotreeConverter",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "libs/PotreeConverter2", 
+        "to": "resources/PotreeConverter2",
+        "filter": ["**/*"]
+      }
     ],
     "directories": {
-      "output": "dist"
+      "output": "Potree_Viewer_IM"
     },
     "win": {
       "target": "nsis"
