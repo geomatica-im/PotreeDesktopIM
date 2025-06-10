@@ -1,20 +1,36 @@
 {
-	"name": "potree_desktop",
-	"version": "1.7.0",
-	"description": "A WebGL Point Cloud Viewer",
-	"main": "main.js",
-	"scripts": {
-		"start": "electron ."
-	},
-	"repository": "https://github.com/potree/potree",
-	"keywords": [
-		"Potree",
-		"point cloud viewer",
-		"lidar viewer"
-	],
-	"author": "Markus Schuetz",
-	"license": "no license available at this time",
-	"dependencies": {
-		"electron": "21.3.1"
-	}
+  "name": "potree_desktop",
+  "version": "1.7.0",
+  "description": "A WebGL Point Cloud Viewer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "uy.gub.montevideo.visualizadorpotree",
+    "productName": "Visualizador de Potree - IM",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "repository": "https://github.com/potree/potree",
+  "keywords": [
+    "Potree",
+    "point cloud viewer",
+    "lidar viewer"
+  ],
+  "author": "Markus Schuetz",
+  "license": "no license available at this time",
+  "dependencies": {},
+  "devDependencies": {
+	"electron": "21.3.1",
+    "electron-builder": "^26.0.12"
+  }
 }
