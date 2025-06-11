@@ -379,25 +379,24 @@ function applyVisualizationToPointcloud(pointcloud, mode) {
 			pointcloud.material.activeAttributeName = "classification";
 			// Aplicar las clasificaciones predefinidas
 			viewer.setClassifications({
-				0: { visible: false, name: 'Nunca clasificado', color: [160 / 255, 160 / 255, 160 / 255, 1.0] },
-				1: { visible: false, name: 'No clasificado', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
-				2: { visible: true, name: 'Suelo', color: [128 / 255, 64 / 255, 0, 1.0] },
-				3: { visible: true, name: 'Baja vegetación', color: [0, 128 / 255, 0, 1.0] },
-				4: { visible: true, name: 'Vegetación media', color: [0, 200 / 255, 0, 1.0] },
-				5: { visible: true, name: 'Alta vegetación', color: [0, 255 / 255, 0, 1.0] },
-				6: { visible: true, name: 'Construcción', color: [255 / 255, 128 / 255, 0, 1.0] },
-				9: { visible: true, name: 'Agua', color: [0, 0, 255 / 255, 1.0] },
-				10: { visible: true, name: 'Vías', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
-				11: { visible: true, name: 'Camino', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
-				12: { visible: true, name: 'Solapamiento', color: [255 / 255, 0, 255 / 255, 1.0] },
-				13: { visible: true, name: 'Cable guardia', color: [255 / 255, 255 / 255, 0, 1.0] },
-				14: { visible: true, name: 'Cable - Conductor', color: [255 / 255, 255 / 255, 0, 1.0] },
-				15: { visible: true, name: 'Torre de transmisión', color: [0, 255 / 255, 255 / 255, 1.0] },
-				17: { visible: true, name: 'Puente', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
-				19: { visible: true, name: 'Parte alta estructura', color: [0, 255 / 255, 255 / 255, 1.0] },
-				24: { visible: false, name: 'Ruido alto', color: [255 / 255, 0, 0, 1.0] },
-				120: { visible: false, name: 'Default', color: [0, 128 / 255, 255 / 255, 1.0] },
-				150: { visible: false, name: "Otro ruido", color: [255 / 255, 0, 0, 1.0] }
+				0: { visible: false, name: '0 - Never classified', color: [160 / 255, 160 / 255, 160 / 255, 1.0] },
+				1: { visible: true, name: '1 - No classified', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
+				2: { visible: true, name: '2 - Ground', color: [128 / 255, 64 / 255, 0, 1.0] },
+				3: { visible: true, name: '3 - Low vegetation', color: [0, 128 / 255, 0, 1.0] },
+				4: { visible: true, name: '4 - Medium vegetation', color: [0, 200 / 255, 0, 1.0] },
+				5: { visible: true, name: '5 - High vegetation', color: [0, 255 / 255, 0, 1.0] },
+				6: { visible: true, name: '6 - Building', color: [255 / 255, 128 / 255, 0, 1.0] },
+				9: { visible: true, name: '9 - Water', color: [0, 0, 255 / 255, 1.0] },
+				11: { visible: true, name: '11 - Road', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
+				12: { visible: true, name: '12 - Overlap', color: [255 / 255, 0, 255 / 255, 1.0] },
+				13: { visible: true, name: '13 - Guard cable', color: [255 / 255, 255 / 255, 0, 1.0] },
+				14: { visible: true, name: '14 - Conductor cable', color: [255 / 255, 255 / 255, 0, 1.0] },
+				15: { visible: true, name: '15 - Transmition tower', color: [0, 255 / 255, 255 / 255, 1.0] },
+				17: { visible: true, name: '17 - Bridge', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
+				19: { visible: true, name: '19 - Building top', color: [0, 255 / 255, 255 / 255, 1.0] },
+				24: { visible: false, name: '24 - High noise', color: [255 / 255, 0, 0, 1.0] },
+				120: { visible: false, name: '120 - Default', color: [0, 128 / 255, 255 / 255, 1.0] },
+				150: { visible: false, name: "150 - Noise", color: [255 / 255, 0, 0, 1.0] }
 			});
 			break;
 			

@@ -170,3 +170,32 @@
 	gap: 10px; /* espacio entre botones, opcional */
 }
 
+#classificationList li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+#classificationList label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px; /* Espacio entre checkbox, texto y color */
+}
+
+#classificationList input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+#classificationList span {
+    flex-grow: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+#classificationList input[id^="colorPickerClassification_"] {
+    /* Ajusta el tamaño del color picker si usas spectrum */
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
