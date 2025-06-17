@@ -75818,7 +75818,7 @@ ENDSEC
 				<li><span data-i18n="appearance.point_opacity"></span>:<span id="lblOpacity"></span><div id="sldOpacity"></div></li>
 
 				<div class="divider">
-					<span>Attribute</span>
+					<span>Atributo</span>
 				</div>
 
 				<li>
