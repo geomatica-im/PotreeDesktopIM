@@ -227,6 +227,7 @@
 			17: { visible: true, name: '17 - Bridge', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
 			19: { visible: true, name: '19 - Building top', color: [0, 255 / 255, 255 / 255, 1.0] },
 			24: { visible: false, name: '24 - High noise', color: [255 / 255, 0, 0, 1.0] },
+			105: {visible: false, name: '105 - Default', color: [255 / 255, 255 / 255, 0, 1.0]},
 			120: { visible: false, name: '120 - Default', color: [0, 128 / 255, 255 / 255, 1.0] },
 			150: { visible: false, name: "150 - Noise", color: [255 / 255, 0, 0, 1.0] }
 		};
@@ -245,7 +246,7 @@
 			// Clasificaciones
 			viewer.setClassifications({
 				0: { visible: false, name: '0 - Never classified', color: [160 / 255, 160 / 255, 160 / 255, 1.0] },
-				1: { visible: true, name: '1 - No classified', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
+				1: { visible: false, name: '1 - No classified', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
 				2: { visible: true, name: '2 - Ground', color: [128 / 255, 64 / 255, 0, 1.0] },
 				3: { visible: true, name: '3 - Low vegetation', color: [0, 128 / 255, 0, 1.0] },
 				4: { visible: true, name: '4 - Medium vegetation', color: [0, 200 / 255, 0, 1.0] },
@@ -260,21 +261,28 @@
 				17: { visible: true, name: '17 - Bridge', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
 				19: { visible: true, name: '19 - Building top', color: [0, 255 / 255, 255 / 255, 1.0] },
 				24: { visible: false, name: '24 - High noise', color: [255 / 255, 0, 0, 1.0] },
+				105: {visible: false, name: '105 - Default', color: [255 / 255, 255 / 255, 0, 1.0]},
 				120: { visible: false, name: '120 - Default', color: [0, 128 / 255, 255 / 255, 1.0] },
 				150: { visible: false, name: "150 - Noise", color: [255 / 255, 0, 0, 1.0] }
 			});
 		};
 
 		// Funcion para setear la elevacion
-		window.setElevation = function(){
-			// Por cada pointcloud seteo la elevacion
-			viewer.scene.pointclouds.forEach(function(element, index) {
-				const pc = element;
-				if (!pc) return;
+		window.setElevation = function() {
+    	viewer.scene.pointclouds.forEach(function(element) {
+        const pc = element;
+        if (!pc) return;
+			
+        // Establecer el atributo activo de color
+        pc.material.activeAttributeName = "elevation";
 
-				pc.material.activeAttributeName = "elevation";
+        // Establecer el rango de elevación en el material
+        pc.material.elevationRange = [-17, 190];
+
+        // Forzar actualización del material
+        pc.material.needsUpdate = true;
 			});
-		};	
+		};
 			
 		
 	</script>
