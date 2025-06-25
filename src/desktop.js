@@ -395,6 +395,7 @@ function applyVisualizationToPointcloud(pointcloud, mode) {
 				17: { visible: true, name: '17 - Bridge', color: [128 / 255, 128 / 255, 128 / 255, 1.0] },
 				19: { visible: true, name: '19 - Building top', color: [0, 255 / 255, 255 / 255, 1.0] },
 				24: { visible: false, name: '24 - High noise', color: [255 / 255, 0, 0, 1.0] },
+				105: {visible: false, name: '105 - Default', color: [255 / 255, 255 / 255, 0, 1.0]},
 				120: { visible: false, name: '120 - Default', color: [0, 128 / 255, 255 / 255, 1.0] },
 				150: { visible: false, name: "150 - Noise", color: [255 / 255, 0, 0, 1.0] }
 			});
