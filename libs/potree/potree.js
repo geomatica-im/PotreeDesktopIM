@@ -71850,14 +71850,26 @@ void main() {
 					mousePositionControl
 				]),
 				layers: [
-					new ol.layer.Tile({source: new ol.source.OSM()}),
-					this.toolLayer,
-					this.annotationsLayer,
-					this.sourcesLayer,
-					this.sourcesLabelLayer,
-					this.images360Layer,
-					extentsLayer,
-					cameraLayer
+					new ol.layer.Tile({
+					source: new ol.source.TileWMS({
+						url: 'https://montevideo.gub.uy/app/geoserver/ows?',
+						params: {
+							'LAYERS': 'mapstore-base:capas_base',
+							'TILED': true,
+							'FORMAT': 'image/png',
+							'SERVICE': 'WMS'
+						},
+						serverType: 'geoserver'
+						
+					})
+				}),
+				this.toolLayer,
+				this.annotationsLayer,
+				this.sourcesLayer,
+				this.sourcesLabelLayer,
+				this.images360Layer,
+				extentsLayer,
+				cameraLayer
 				],
 				target: 'potree_map_content',
 				view: new ol.View({
@@ -72333,7 +72345,7 @@ void main() {
 				return;
 			}
 
-			let url = `${pointcloud.pcoGeometry.url}/../sources.json`;
+			let url = `${pointcloud.pcoGeometry.url}/../metadata.json`;
 			//let response = await fetch(url);
 
 			fetch(url).then(async (response) => {
@@ -89181,7 +89193,7 @@ ENDSEC
 				imgMenuToggle.classList.add('potree_menu_toggle');
 
 				let imgMapToggle = document.createElement('img');
-				imgMapToggle.src = new URL(Potree.resourcePath + '/icons/map_icon.png').href;
+				imgMapToggle.src = new URL(Potree.resourcePath + '/icons/icono-montevimap.svg').href;
 				imgMapToggle.style.display = 'none';
 				imgMapToggle.onclick = e => { this.toggleMap(); };
 				imgMapToggle.id = 'potree_map_toggle';

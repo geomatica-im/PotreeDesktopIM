@@ -160,14 +160,21 @@
 	margin: 10px 0px;
 }
 
+/*Estilo para botones de clasificación*/
+.wrapper {
+    display: flex;
+    height: 100vh;
+	margin-left: 300px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+
 #custom-buttons {
-	position: absolute;
-	bottom: 20px; /* distancia desde abajo */
-	left: 50%;
-	transform: translateX(-50%);
+	padding: 10px;
 	z-index: 10000;
-	display: flex;
-	gap: 10px; /* espacio entre botones, opcional */
+	border-radius: 20%
 }
 
 #classificationList li {
