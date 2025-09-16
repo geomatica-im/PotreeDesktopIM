@@ -143,7 +143,7 @@
        r="9" />
     <path
        id="path4535"
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 21.96875,22.09375 C 28,12 26,1 16,1 6,1 4,12 10.03125,22.09375 15.112504,30.59761 16,30 16,30 c 0,0 0.887496,0.59761 5.96875,-7.90625 z"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="scscs" />
